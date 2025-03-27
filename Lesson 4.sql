@@ -215,8 +215,8 @@ from employees;
 -- Если зарплата больше/равна 15000, то значение high
 
 select first_name, last_name, salary, 
-		case
-			when salary < 7000 then 'low'
+	case
+	    when salary < 7000 then 'low'
             when salary < 15000 then 'mid'
             else 'high'
         end as salary_cat
@@ -248,10 +248,10 @@ set sql_safe_updates = 0;
 
 update employees
 set salary_cat = case
-						when salary < 7000 then 'low'
+			when salary < 7000 then 'low'
                         when salary < 15000 then 'mid'
                         else 'high'
-				end;
+		  end;
 
 
 -- Обновить зарплаты сотрудников:
@@ -260,10 +260,10 @@ set salary_cat = case
 
 update employees
 set salary = case
-					when salary_cat = 'low' then salary + (salary * 10 / 100)
+		    when salary_cat = 'low' then salary + (salary * 10 / 100)
                     when salary_cat = 'mid' then salary + (salary * 5 / 100)
                     else salary
-			 end;
+		end;
 
 select * from employees;
 
